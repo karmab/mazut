@@ -1,0 +1,7 @@
+---
+bvaosp::verbose: {{ verbose }}
+mazut::debug: {{ debug }}
+mazut::ovs_tunnel_iface: {{ ovs_tunnel_iface }}
+mazut::agent_type: {{ agent_type }}
+mazut::enable_agent: {{ enable_agent }}
+mazut::enable_tunneling: {{ enable_tunneling }}

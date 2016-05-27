@@ -1,0 +1,11 @@
+---
+bvaosp::verbose: {{ verbose }}
+mazut::debug: {{ debug }}
+mazut::swift_ringserver_ip: {{ swift_ringserver_ip }}
+mazut::swift_storage_ips:
+{{ swift_storage_ips }}
+mazut::swift_storage_device: {{ swift_storage_device }}
+mazut::swift_shared_secret: {{ swift_shared_secret }}
+mazut::swift_local_interface: {{ swift_local_interface }}
+mazut::swift_storage_fstype: {{ swift_storage_fstype }}
+mazut::swift_storage_loopback: {{ swift_storage_loopback }}

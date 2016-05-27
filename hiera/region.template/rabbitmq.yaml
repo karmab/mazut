@@ -1,0 +1,10 @@
+---
+mazut::amqp_hosts:
+ - 192.168.3.99
+mazut::amqp_port: 5672
+mazut::amqp_username: rabbit
+mazut::amqp_password: rabbit
+mazut::amqp_cluster_nodes:
+ - zmy1
+ - zmy2
+mazut::amqp_cookie: A_SECRET_COOKIE_STRING

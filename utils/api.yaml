@@ -1,0 +1,110 @@
+---
+mazut::verbose: {{ verbose }}
+mazut::debug: {{ debug }}
+mazut::root_db_password: {{ root_db_password }}
+mazut::cinder_db_password: {{ cinder_db_password }} 
+mazut::glance_db_password: {{ glance_db_password }}
+mazut::heat_db_password: {{ heat_db_password }}
+mazut::sahara_db_password: {{ sahara_db_password }}
+mazut::keystone_db_password: {{ keystone_db_password }}
+mazut::mysql_host: {{ mysql_host }}
+mazut::mysql_root_password: {{ mysql_root_password }}
+mazut::neutron_db_password: {{ neutron_db_password }}
+mazut::nova_db_password: {{ nova_db_password }}
+mazut::trove_db_password: {{ trove_db_password }}
+mazut::amqp_hosts:
+{{ amqp_hosts }}
+mazut::amqp_port: {{ amqp_port }}
+mazut::amqp_username: {{ amqp_username }}
+mazut::amqp_password: {{ amqp_password }}
+mazut::amqp_cluster_nodes:
+{{ amqp_hosts }}
+mazut::amqp_cookie: {{ amqp_cookie }}
+mazut::admin_email: {{ admin_email }}
+mazut::admin_password: {{ admin_password }}
+mazut::ceilometer_metering_secret: {{ ceilometer_metering_secret }}
+mazut::ceilometer_user_password: {{ ceilometer_user_password }}
+mazut::cinder_backend_nfs: {{ cinder_backend_nfs }}
+{% if cinder_backend_nfs == 'true' %}
+mazut::cinder_nfs_shares:
+{{ cinder_nfs_shares }}
+{% endif %}
+mazut::cinder_user_password: {{ cinder_user_password }}
+mazut::controller_admin_host: {{ controller_admin_host }}
+mazut::controller_priv_host: {{ controller_priv_host }}
+mazut::controller_pub_host: {{ controller_pub_host }}
+mazut::glance_user_password: {{ glance_user_password }}
+mazut::heat_user_password: {{ heat_user_password }}
+mazut::sahara_user_password: {{ sahara_user_password }}
+mazut::swift_user_password: {{ swift_user_password }}
+mazut::horizon_secret_key: {{ horizon_secret_key }}
+mazut::keystone_admin_token: {{ keystone_admin_token }}
+mazut::keystone_api_version: {{ keystone_api_token }}
+mazut::neutron_metadata_proxy_secret: {{ neutron_metadata_proxy_secret }}
+mazut::neutron_user_password: {{ neutron_user_password }}
+mazut::nova_user_password: {{ nova_user_password }}
+mazut::heat_auth_encrypt_key: {{ heat_auth_encrypt_key }} 
+{% if public_url_keystone != '' %}
+mazut::public_url_keystone:  {{ public_url_keystone }}
+{% endif %}
+{% if public_url_glance != '' %}
+mazut::public_url_glance:  {{ public_url_glance }}
+{% endif %}
+{% if public_url_cinder != '' %}
+mazut::public_url_cinder:  {{ public_url_cinder }}
+{% endif %}
+{% if public_url_neutron != '' %}
+mazut::public_url_neutron:  {{ public_url_neutron }}
+{% endif %}
+{% if public_url_nova != '' %}
+mazut::public_url_nova:  {{ public_url_nova }}
+{% endif %}
+{% if public_url_nova_ec2 != '' %}
+mazut::public_url_nova_ec2:  {{ public_url_nova_ec2 }}
+{% endif %}
+{% if public_url_swift != '' %}
+mazut::public_url_swift:  {{ public_url_swift }}
+{% endif %}
+{% if public_url_heat != '' %}
+mazut::public_url_heat:  {{ public_url_heat }}
+{% endif %}
+{% if public_url_heat_cfn != '' %}
+mazut::public_url_heat_cfn:  {{ public_heat_cfn }}
+{% endif %}
+{% if public_url_heat_cloudwatch != '' %}
+mazut::public_url_heat_cloudwatch:  {{ public_heat_cloudwatch }}
+{% endif %}
+{% if public_url_ceilometer != '' %}
+mazut::public_url_ceilometer:  {{ public_url_ceilometer }}
+{% endif %}
+{% if public_url_sahara != '' %}
+mazut::public_url_sahara:  {{ public_url_sahara }}
+{% endif %}
+mazut::region: {{ region }}
+mazut::extra_services:
+{{ extra_services }}
+mazut::provision_glance:  {{ provision_glance }}
+mazut::cirros_version:  {{ cirros_version }}
+mazut::keystone_api_version:  {{ keystone_api_version }}
+{% if provision_neutron == 'true' %}
+mazut::provision_neutron:  {{ provision_neutron }}
+mazut::neutron_public_net:  {{ neutron_public_net }}
+mazut::neutron_public_gateway:  {{ neutron_public_gateway }}
+mazut::neutron_public_start:  {{ neutron_public_start }}
+mazut::neutron_public_end:  {{ neutron_public_end }}
+{% endif %}
+mazut::provision_keystone:  {{ provision_keystone }}
+mazut::glance_nfs_url:  {{ glance_nfs_url }}
+mazut::ovs_tunnel_iface:  {{ ovs_tunnel_iface }}
+mazut::mongodb_servers:
+{{ mongodb_servers }}
+mazut::mongodb_replicaset:  {{ mongodb_replicaset }}
+mazut::swift_ringserver_ip:  {{ swift_ringserver_ip }}
+mazut::swift_storage_ips:
+{{ swift_storage_ips }}
+mazut::swift_storage_device:  {{ swift_storage_device }}
+mazut::swift_shared_secret:  {{ swift_shared_secret }}
+mazut::swift_local_interface:  {{ swift_local_interface }}
+mazut::swift_storage_fstype:  {{ swift_storage_fstype }}
+mazut::swift_storage_loopback:  {{ swift_storage_loopback }}
+nova::vncproxy::common::vncproxy_host: {{ vncproxy_host }}

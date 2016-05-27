@@ -1,0 +1,7 @@
+---
+bvaosp::verbose: true
+mazut::debug: true
+mazut::ovs_tunnel_iface: eth1
+mazut::agent_type: ovs
+mazut::enable_agent: true
+mazut::enable_tunneling: true

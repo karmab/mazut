@@ -1,0 +1,18 @@
+---
+:backends:
+  - yaml
+:hierarchy:
+  - "node/%{::hostname}"
+  - "osp/%{::region}/node/%{::hostname}"
+  - "osp/%{::region}/%{::role}"
+  - "osp/foreman"
+  - "osp/ldap"
+  - "osp/default"
+  - defaults
+
+:yaml:
+# datadir is empty here, so hiera uses its defaults:
+# - /var/lib/hiera on *nix
+# - %CommonAppData%\PuppetLabs\hiera\var on Windows
+# When specifying a datadir, make sure the directory exists.
+  :datadir:

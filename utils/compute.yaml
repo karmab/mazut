@@ -1,0 +1,21 @@
+---
+mazut::verbose: {{ verbose }}
+mazut::debug: {{ debug }}
+mazut::private_network: {{ private_network }}
+mazut::ovs_tunnel_iface: {{ ovs_tunnel_iface }}
+mazut::private_iface: {{ private_iface }}
+mazut::agent_type: {{ agent_type }}
+mazut::amqp_hosts:
+{{ amqp_hosts }}
+mazut::amqp_password: {{ amqp_password }}
+mazut::amqp_username: {{ amqp_username }}
+mazut::ceilometer_metering_secret: {{ ceilometer_metering_secret }}
+mazut::ceilometer_user_password: {{ ceilometer_user_password }}
+mazut::controller_priv_host: {{ controller_priv_host }}
+mazut::enable_tunneling: {{ enable_tunneling }}
+mazut::mysql_host: {{ mysql_host }}
+mazut::neutron_db_password: {{ neutron_db_password }}
+mazut::neutron_user_password: {{ neutron_user_password }}
+mazut::nova_db_password: {{ nova_db_password }}
+mazut::nova_user_password: {{ nova_user_password }}
+mazut::tenant_network_type: {{ tenant_network_type }}

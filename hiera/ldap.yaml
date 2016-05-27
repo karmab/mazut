@@ -1,0 +1,9 @@
+---
+mazut::ldap_url: ldaps://zipa.zz.local
+mazut::ldap_suffix: dc=zz,dc=local
+mazut::ldap_tree_dn: cn=users,cn=accounts,dc=zz,dc=local
+mazut::ldap_tls_cacertfile: /etc/ipa.crt
+mazut::ldap_user_id_attribute: uid
+mazut::ldap_user_name_attribute: uid
+mazut::ldap_user_mail_attribute: mail
+mazut::admin_user: ospadmin

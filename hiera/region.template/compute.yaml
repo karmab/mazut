@@ -1,0 +1,21 @@
+---
+mazut::verbose: true
+mazut::debug: true
+mazut::private_network: 192.168.3.0
+mazut::ovs_tunnel_iface: eth1
+mazut::private_iface: eth0
+mazut::agent_type: ovs
+mazut::amqp_hosts:
+ - 192.168.3.99
+mazut::amqp_password: rabbit
+mazut::amqp_username: rabbit
+mazut::ceilometer_metering_secret: ceilometer1234
+mazut::ceilometer_user_password: ceilometer1234
+mazut::controller_priv_host: 192.168.3.100
+mazut::enable_tunneling: true
+mazut::mysql_host: 192.168.3.99
+mazut::neutron_db_password: unix1234
+mazut::neutron_user_password: unix1234
+mazut::nova_db_password: unix1234
+mazut::nova_user_password: unix1234
+mazut::tenant_network_type: vxlan

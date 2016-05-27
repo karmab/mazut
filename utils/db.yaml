@@ -1,0 +1,16 @@
+---
+mazut::root_db_password: {{ root_db_password }}
+mazut::cinder_db_password: {{ cinder_db_password }}
+mazut::glance_db_password: {{ glance_db_password }}
+mazut::heat_db_password:  {{ heat_db_password }}
+mazut::sahara_db_password: {{ sahara_db_password }}
+mazut::keystone_db_password: {{ keystone_db_password }}
+mazut::mysql_host: {{ mysql_host }}
+mazut::mysql_root_password: {{ mysql_root_password }}
+mazut::neutron_db_password: {{ neutron_db_password }}
+mazut::nova_db_password: {{ nova_db_password }}
+mazut::trove_db_password: {{ trove_db_password }}
+mazut::galera_master_name: {{ galera_master_name }}
+mazut::enable_galera: {{ enable_galera }}
+mazut::galera_internal_ips:
+{{ galera_internal_ips }}

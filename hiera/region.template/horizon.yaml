@@ -1,0 +1,6 @@
+---
+bvaosp::verbose: true
+mazut::debug: true
+mazut::horizon_secret_key: horizonsecret
+mazut::keystone_api_version: v2.0
+mazut::controller_priv_host: 192.168.3.100

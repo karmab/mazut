@@ -1,0 +1,223 @@
+global
+    daemon
+    # turn on stats unix socket
+    stats socket /var/lib/haproxy/stats
+defaults
+    mode                    http
+    option                  redispatch
+    retries                 3
+    maxconn                 15000
+    timeout connect         5s
+    timeout client          30s
+    timeout server          30s
+
+listen admin
+        mode http
+        bind *:8081
+        stats enable
+        stats uri       /admin?stats
+        stats auth      admin:admin
+
+
+#COMANDOS EN INTERNO ( CUANDO NO SE USA VARIABLES DE ENTORNO PARA ATACAR A LAS INTERNALURLS)
+frontend https-in
+    mode tcp
+    bind *:443
+    #acl horizon hdr(host) -i vinucloud.nefele.internal
+    acl horizon hdr(host) -i <%= @horizon_internal_domain %>
+    acl keystone hdr(host) -i <%= @keystone_obfuscated_internal_domain %>
+    acl keystone2 hdr(host) -i <%= @keystone2_obfuscated_internal_domain %>
+    acl nova hdr(host) -i <%= @nova_obfuscated_internal_domain %>
+    acl cinder  hdr(host) -i <%= @cinder_obfuscated_internal_domain %>
+    acl glance  hdr(host) -i <%= @glance_obfuscated_internal_domain %>
+    acl swift hdr(host) -i <%= @swift_obfuscated_internal_domain %>
+    acl ec2  hdr(host) -i <%= @ec2_obfuscated_internal_domain %>
+    acl heat-api hdr(host) -i <%= @heat_obfuscated_internal_domain %>
+    acl sahara hdr(host) -i <%= @sahara_obfuscated_internal_domain %>
+    acl ceilometer hdr(host) -i <%= @ceilometer_obfuscated_internal_domain %>
+    acl vnc hdr(host) -i <%= @vnc_obfuscated_internal_domain %>
+    acl vsd-api hdr(host) -i <%= @vsd_obfuscated_internal_domain %>
+    default_backend vsd-api
+    use_backend horizon if horizon
+    use_backend keystone if keystone
+    use_backend keystone-admin if keystone2
+    use_backend nova if nova
+    use_backend cinder if cinder
+    use_backend glance if glance
+    use_backend vsd-api if vsd-api
+    use_backend swift if swift
+    use_backend heat-api if heat-api
+    use_backend sahara if sahara
+    use_backend ceilometer if ceilometer
+    use_backend vnc if vnc
+
+#HORIZON INTERNO (SOLO MEDIANTE TUNEL)
+frontend fe_horizon75 <%= @horizon_vip %>
+        mode tcp
+        acl nuage hdr(host) -i <%= @vsd_obfuscated_internal_domain %>
+        default_backend horizon
+backend horizon
+        mode tcp
+        reqadd X-Forwarded-Proto:\ https
+        balance roundrobin
+        <% @horizon_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend vnc-vip75 <%= @vnc_vip %>
+       mode tcp
+       default_backend vnc
+
+backend nuage
+        mode tcp
+        reqadd X-Forwarded-Proto:\ https
+        stick-table type ip size 200k expire 30m
+        stick on src
+        balance roundrobin
+        <% @vsd_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend keystone-admin-vip75 <%= @keystone_admin_vip %>
+        default_backend keystone-admin
+backend keystone-admin
+        balance roundrobin
+        default-server inter 1s
+        <% @keystone_admin_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend keystone-vip75 <%= @keystone_vip %>
+        default_backend keystone
+backend keystone
+        balance roundrobin
+        default-server inter 1s
+        <% @keystone_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend glance-vip75 <%= @glance_api_vip %>
+        default_backend glance
+backend glance
+        balance roundrobin
+        <% @glance_api_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend glance-registry-vip75 <%= @glance_registry_vip %>
+        default_backend glance-registry
+backend glance-registry
+        balance roundrobin
+        <% @glance_registry_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend cinder-vip75 <%= @cinder_vip %>
+        default_backend cinder
+backend cinder
+        balance roundrobin
+        <% @cinder_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend nova-vip75 <%= @nova_vip %>
+        default_backend nova
+backend nova
+        balance roundrobin
+        default-server inter 1s
+        <% @nova_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend nova-metadata-vip75 <%= @nova_metadata_vip %>
+        default_backend nova-metadata
+backend nova-metadata
+        balance roundrobin
+        default-server inter 1s
+        <% @nova_metadata_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend neutron-vip75 <%= @neutron_vip %>
+        default_backend neutron
+backend neutron
+        balance roundrobin
+        <% @neutron_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+backend vnc
+        mode http
+        balance roundrobin
+        <% @vnc_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend ceilometer-vip75 <%= @ceilometer_vip %>
+        default_backend ceilometer
+backend ceilometer
+        balance roundrobin
+        <% @ceilometer_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend heat-cfn-vip75 <%= @heat_cfn_vip %>
+        default_backend heat-cfn
+backend heat-cfn
+        balance roundrobin
+        <% @heat_cfn_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend sahara-vip75 <%= @sahara_vip %>
+        default_backend sahara
+backend sahara
+        balance roundrobin
+        <% @sahara_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend heat-api-vip75 <%= @heat_api_vip %>
+        default_backend heat-api
+backend heat-api
+        balance roundrobin
+        <% @heat_api_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+backend vsd-api
+        mode tcp
+        balance source
+        reqadd X-Forwarded-Proto:\ https
+        <% @vsd_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend swift-vip75 <%= @swift_vip %>
+        default_backend swift
+backend swift
+        balance roundrobin
+        <% @swift_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+# COMUNICACION ENTRE NEUTRON  Y NUAGE
+frontend vsd-api-vip76 <%= @vsd_vip %>
+        default_backend  vsd-api76
+        mode tcp
+backend vsd-api76
+        mode tcp
+        balance source
+        reqadd X-Forwarded-Proto:\ https
+        <% @vsd_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>
+
+frontend vsd-stats-vip75 <%= @vsd_stats_vip %>
+        default_backend  vsd-stats
+backend vsd-stats
+        balance source
+        reqadd X-Forwarded-Proto:\ https
+        <% @vsd_stats_backends.each_pair do |name, address| %>
+        server <%= name %> <%= address %> check inter 1s
+        <% end %>

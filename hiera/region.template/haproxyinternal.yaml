@@ -1,0 +1,69 @@
+mazut::cluster_members:
+ - zlbinternal1
+ - zlbinternal2
+mazut::cluster_vips:
+  192.168.3.100:
+    cidr: 24
+mazut::cluster_master: zlbinternal1
+mazut::cluster_haproxy: true
+mazut::stonith: true
+mazut::stonith_type: rhevm
+mazut::rhevm_login: admin@internal
+mazut::rhevm_passwd: prout
+mazut::rhevm_ipaddr: 192.168.3.1
+mazut::rhevm_hosts:
+ - zlbinternal1
+ - zlbinternal2
+mazut::cluster_enablevip: true
+mazut::haproxy_vip: 192.168.3.100
+mazut::haproxy_servers:
+ - zcontrol1.karma.local
+mazut::haproxy_ips:
+ - 192.168.3.5
+mazut::haproxy_config:
+  keystone-admin:
+    port: '35357'
+  keystone:
+    port: '5000'
+  glance:
+    port: '9292'
+  cinder:
+    port: '8776'
+  neutron:
+    port: '9696'
+  nova:
+    port: '8774'
+  nova-metadata:
+    port: '8775'
+  vnc:
+    port: '6080'
+    backend_mode: http
+  ceilometer:
+    port: '8777'
+  heat-cfn:
+    port: '8000'
+  heat-api:
+    port: '8004'
+  sahara:
+    port: '8386'
+  swift:
+    port: '8080'
+  vsd-api:
+   port: '8443'
+   balance: source
+   servers: 
+    - nuage1.karma.local
+    - nuage2.karma.local
+   ips: 
+    - 192.168.1.1
+    - 192.168.1.2
+  vsd-stats:
+   port: '4242'
+   servers: 
+    - nuage1.karma.local
+    - nuage2.karma.local
+   ips: 
+    - 192.168.1.1
+    - 192.168.1.2
+  horizon:
+    port: '80'

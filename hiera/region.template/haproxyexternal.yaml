@@ -1,0 +1,53 @@
+mazut::cluster_enablevip: true
+mazut::cluster_members:
+ - zlbexternal1
+ - zlbexternal2
+mazut::haproxy_vip: 192.168.3.101
+mazut::haproxy_servers:
+ - zlbexternal1.karma.local
+ - zlbexternal2.karma.local
+mazut::haproxy_ips:
+ - 192.168.3.11
+ - 192.168.3.12
+mazut::cluster_vips:
+  192.168.3.101:
+    cidr: 24
+mazut::haproxy_config_external:
+  swift:
+    backend_mode: http
+    port: '8080'
+  vsd-stats:
+   port: '4242'
+   servers: 
+    - nuage1.karma.local
+    - nuage2.karma.local
+   ips: 
+    - 192.168.1.1
+    - 192.168.1.2
+  vnc:
+    port: '6080'
+    backend_mode: http
+  waf:
+    port: '80'
+    backend_mode: http
+    reqadd: X-Forwarded-Proto:\ https
+    servers: 
+     - lpcwa001
+     - lpcwa002
+    ips: 
+     - lpcwa001.nefele.internal
+     - lpcwa002.nefele.internal
+  heat:
+    port: '8004'
+    backend_mode: http
+  sahara:
+    port: '8386'
+    backend_mode: http
+  https:
+    port: '443'
+    sslcert: /etc/haproxy/server.pem
+    acl:
+     - horizon:
+         host: vinucloud.nefele.internal
+     - swift:
+         host: swift.com

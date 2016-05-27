@@ -1,0 +1,89 @@
+---
+mazut::verbose: true
+mazut::debug: true
+mazut::root_db_password: rootpassword
+mazut::cinder_db_password: cinder1234
+mazut::glance_db_password: glance1234
+mazut::heat_db_password: heat1234
+mazut::sahara_db_password: sahara1234
+mazut::keystone_db_password: keystone1234
+mazut::mysql_host: 192.168.3.99
+mazut::mysql_root_password: rootpassword
+mazut::neutron_db_password: unix1234
+mazut::nova_db_password: unix1234
+mazut::trove_db_password: unix1234
+mazut::amqp_hosts:
+ - 192.168.3.3
+ - 192.168.3.4
+ - 192.168.3.13
+mazut::amqp_port: 5672
+mazut::amqp_username: rabbit
+mazut::amqp_password: rabbit
+mazut::amqp_cluster_nodes:
+ - zmy1
+ - zmy2
+ - zmy3
+mazut::amqp_cookie: A_SECRET_COOKIE_STRING
+mazut::admin_email: karim@redhat.com
+mazut::admin_password: unix1234
+mazut::ceilometer_metering_secret: ceilometer1234
+mazut::ceilometer_user_password: ceilometer1234
+mazut::cinder_backend_nfs: true
+mazut::cinder_nfs_shares: 
+ - 192.168.5.10:/cinder2
+mazut::cinder_user_password: cinder1234
+mazut::controller_admin_host: 192.168.3.100
+mazut::controller_priv_host: 192.168.3.100
+mazut::controller_pub_host: 192.168.3.100
+mazut::glance_user_password: glance1234
+mazut::heat_user_password: heat1234
+mazut::sahara_user_password: sahara1234
+mazut::swift_user_password: unix1234
+mazut::horizon_secret_key: horizonsecret
+mazut::keystone_admin_token: unix1234
+mazut::keystone_api_version: v2.0
+mazut::neutron_metadata_proxy_secret: proxysecret1234
+mazut::neutron_user_password: unix1234
+mazut::nova_user_password: unix1234
+mazut::heat_auth_encrypt_key: unix1234unix1234
+mazut::public_url_ceilometer: https://ceilometer.com
+mazut::public_url_cinder: https://cinder.com
+mazut::public_url_glance: http://192.168.3.100:9292
+mazut::public_url_keystone: http://192.168.3.100:5000
+mazut::public_url_nova: https://nova.com
+mazut::public_url_nova_ec2: https://ec2.com
+mazut::public_url_neutron: http://192.168.3.100:9696
+mazut::public_url_swift: http://192.168.3.100:8080
+mazut::public_url_heat: https://heat.com
+mazut::public_url_heat_cfn: https://cfn.com
+mazut::public_url_heat_cloudwatch: https://cloudwatch.com
+mazut::public_url_sahara: https://sahara.com
+mazut::region: Spain_Bcn
+mazut::extra_services:
+ - ceilometer
+ - swift
+ - sahara
+mazut::provision_glance: true
+mazut::cirros_version: 0.3.4
+mazut::keystone_api_version: v2.0
+mazut::provision_neutron: true
+mazut::neutron_public_net: 192.168.5.0/24
+mazut::neutron_public_gateway: 192.168.5.1
+mazut::neutron_public_start: 192.168.5.200
+mazut::neutron_public_end: 192.168.5.254
+mazut::provision_keystone: true
+mazut::glance_nfs_url: 192.168.5.10:/images2
+mazut::ovs_tunnel_iface: eth1
+mazut::mongodb_servers:
+ - 192.168.3.7
+ - 192.168.3.8
+mazut::mongodb_replicaset: supportnodes
+mazut::swift_ringserver_ip: 192.168.3.100
+mazut::swift_storage_ips:
+ - 192.168.3.5
+mazut::swift_storage_device: vdb1
+mazut::swift_shared_secret: unix1234
+mazut::swift_local_interface: eth0
+mazut::swift_storage_fstype: xfs
+mazut::swift_storage_loopback: true
+nova::vncproxy::common::vncproxy_host: false

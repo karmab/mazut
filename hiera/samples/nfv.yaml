@@ -1,0 +1,13 @@
+mazut::enable_nfv: true
+mazut::pci_alias: "[{\"vendor_id\":\"8086\",\"product_id\":\"10fb\",\"name\":\"my_PF\"},{\"vendor_id\":\"8086\",\"product_id\":\"1572\",\"name\":\"my_PF2\"}]"
+mazut::pci_passthrough: "[{\"vendor_id\":\"8086\",\"product_id\":\"10fb\"},{\"vendor_id\":\"8086\",\"product_id\":\"154d\"},{\"vendor_id\":\"8086\",\"product_id\":\"10ed\",\"physical_network\":\"physnet_sriov\"}]"
+mazut::pci_vendor_devs:
+ - '8086:10ed'
+mazut::neutron_ml2_mechanism_drivers:
+ - openvswitch
+ - l2population
+ - sriovnicswitch
+mazut::telefonica_server: 192.168.1.1
+mazut::telefonica_port: 8080
+mazut::telefonica_switch_file: /tmp/tef_switch_connections.yaml
+

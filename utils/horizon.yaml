@@ -1,0 +1,6 @@
+---
+bvaosp::verbose: {{ verbose }}
+mazut::debug: {{ debug }}
+mazut::horizon_secret_key: {{ horizon_secret_key }}
+mazut::keystone_api_version: {{ keystone_api_version }}
+mazut::controller_priv_host: {{ controller_priv_host }}

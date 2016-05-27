@@ -1,0 +1,5 @@
+---
+mazut::ovs_bridge_mappings:
+ - external:br-ex
+mazut::ovs_bridge_uplinks:
+ - br-ex:eth0

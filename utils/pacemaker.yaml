@@ -1,0 +1,12 @@
+---
+mazut::cluster_members:
+{{ cluster_members }}
+mazut::cluster_vip: {{ cluster_vip }}
+mazut::cluster_vipmask: {{ cluster_vipmask }}
+mazut::stonith: {{ stonith }}
+mazut::stonith_type: {{ stonith_type }}
+{% if stonith_type == 'rhevm' %}
+mazut::rhevm_login: {{ rhevm_login }}
+mazut::rhevm_passwd: {{ rhevm_passwd }}
+mazut::rhevm_ipaddr: {{ rhevm_ipaddr}} 
+{% endif %}

@@ -1,0 +1,6 @@
+---
+mazut::haproxy_vip: {{ haproxy_vip }}
+mazut::haproxy_servers:
+{{ haproxy_servers }}
+mazut::haproxy_ips:
+{{ haproxy_ips }}

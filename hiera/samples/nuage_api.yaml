@@ -1,0 +1,8 @@
+mazut::neutron_core_plugin: neutron.plugins.nuage.plugin.NuagePlugin
+mazut::enable_agent: false
+mazut::net_partition: Openstack_Default
+mazut::vsdhostname: nuage.x.local
+mazut::vsdport: 8443
+mazut::vsdusername: csproot
+mazut::vsdpassword: csproot
+mazut::nuage_api_version: v3_2

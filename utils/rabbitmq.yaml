@@ -1,0 +1,9 @@
+---
+mazut::amqp_hosts:
+{{ amqp_hosts }}
+mazut::amqp_port: 5672
+mazut::amqp_username: {{ amqp_username }}
+mazut::amqp_password: {{ amqp_password }}
+mazut::amqp_cluster_nodes:
+{{ amqp_hosts }}
+mazut::amqp_cookie: {{ amqp_cookie }}

@@ -1,0 +1,17 @@
+---
+mazut::root_db_password: rootpassword
+mazut::cinder_db_password: cinder1234
+mazut::glance_db_password: glance1234
+mazut::heat_db_password: heat1234
+mazut::sahara_db_password: sahara1234
+mazut::keystone_db_password: keystone1234
+mazut::mysql_host: 192.168.3.99
+mazut::mysql_root_password: rootpassword
+mazut::neutron_db_password: unix1234
+mazut::nova_db_password: unix1234
+mazut::trove_db_password: unix1234
+mazut::galera_master_name: zmy1
+mazut::enable_galera: true
+mazut::galera_internal_ips:
+  - zmy1
+  - zmy2

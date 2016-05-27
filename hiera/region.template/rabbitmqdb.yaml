@@ -1,0 +1,47 @@
+---
+mazut::cluster_master: zmy1
+mazut::cluster_members: 
+ - zmy1
+ - zmy2
+ - zmy3
+mazut::cluster_vip_enable: true
+mazut::stonith: true
+mazut::cluster_vips:
+ 192.168.3.99:
+  cidr: 24
+mazut::stonith_type: rhevm
+mazut::rhevm_login: admin@internal
+mazut::rhevm_passwd: prout
+mazut::rhevm_ipaddr: 192.168.3.1
+mazut::rhevm_hosts:
+ - zmy1
+ - zmy2
+ - zmy3
+mazut::root_db_password: rootpassword
+mazut::cinder_db_password: cinder1234
+mazut::glance_db_password: glance1234
+mazut::heat_db_password: heat1234
+mazut::sahara_db_password: sahara1234
+mazut::keystone_db_password: keystone1234
+mazut::mysql_host: 192.168.3.99
+mazut::mysql_root_password: rootpassword
+mazut::neutron_db_password: unix1234
+mazut::nova_db_password: unix1234
+mazut::trove_db_password: unix1234
+mazut::galera_master_name: zmy1
+mazut::enable_galera: true
+mazut::galera_internal_ips:
+  - zmy1
+  - zmy2
+mazut::amqp_hosts: 
+ - 192.168.3.3
+ - 192.168.3.4
+ - 192.168.3.5
+mazut::amqp_port: 5672
+mazut::amqp_username: rabbit
+mazut::amqp_password: rabbit
+mazut::amqp_cluster_nodes:
+ - zmy1
+ - zmy2
+ - zmy3
+mazut::amqp_cookie: A_SECRET_COOKIE_STRING

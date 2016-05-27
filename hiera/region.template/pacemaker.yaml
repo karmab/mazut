@@ -1,0 +1,12 @@
+---
+mazut::cluster_members: zmy1 zmy2
+mazut::cluster_vip: 192.168.3.99
+mazut::cluster_vipmask: 24
+mazut::stonith: true
+mazut::stonith_type: rhevm
+mazut::rhevm_login: admin@internal
+mazut::rhevm_passwd: prout
+mazut::rhevm_ipaddr: 192.168.3.1
+mazut::rhevm_hosts:
+ - zmy1:zmy1
+ - zmy2:zmy2

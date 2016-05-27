@@ -1,0 +1,9 @@
+---
+mazut::haproxy_vip: 192.168.3.100
+mazut::haproxy_servers:
+ - zmy1.karma.local
+ - zmy2.karma.local
+mazut::haproxy_ips:
+ - 192.168.3.3
+ - 192.168.3.4
+mazut::haproxy_type: internal

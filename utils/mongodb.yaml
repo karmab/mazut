@@ -1,0 +1,4 @@
+---
+mazut::mongodb_servers: 
+{{ mongodb_servers }}
+mazut::mongodb_replicaset: {{ mongodb_replicaset }}

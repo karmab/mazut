@@ -1,0 +1,9 @@
+---
+mazut::enable_agent: true
+mazut::agent_type: nuage
+mazut::ceilometer_metering_secret: secretsecret
+mazut::nuage_activecontroller: 172.16.120.10
+mazut::nuage_standbycontroller: 172.16.120.11
+mazut::neutron_metadata_proxy_secret: xxxx
+mazut::neutron_db_password: xxxx
+mazut::keystone_api_version: v2.0

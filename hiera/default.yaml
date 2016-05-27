@@ -1,0 +1,108 @@
+---
+mazut::enable_foreman: false
+mazut::verbose: false
+mazut::debug: false
+mazut::public_url_keystone: ''
+mazut::public_url_glance: ''
+mazut::public_url_cinder: ''
+mazut::public_url_neutron: ''
+mazut::public_url_nova: ''
+mazut::public_url_nova_ec2: ''
+mazut::public_url_novnc: ''
+mazut::public_url_heat: ''
+mazut::public_url_heat_cfn: '' 
+mazut::public_url_sahara: ''
+mazut::public_url_designate: ''
+mazut::public_url_swift: ''
+mazut::region: RegionOne
+mazut::keystonerc: true
+mazut::token_format: keystone.token.providers.uuid.Provider
+mazut::swift_storage_loopback: false
+mazut::swift_storage_fstype: ext4
+mazut::cinder_backend_iscsi_name: iscsi_backend
+mazut::cinder_iscsi_bind_addr: 0.0.0.0
+mazut::cinder_backend_nfs_name: nfs_backend
+mazut::cinder_nfs_mount_options: ''
+mazut::cinder_backend_rbd_name: rbd_backend
+mazut::cinder_rbd_pool: volumes
+mazut::cinder_rbd_ceph_conf: /etc/ceph/ceph.conf
+mazut::cinder_rbd_flatten_volume_from_snapshot:
+mazut::cinder_rbd_max_clone_depth: 5
+mazut::cinder_rbd_user: volumes
+mazut::netapp_port: 80
+mazut::netapp_mode: cmodeDirectNFS
+mazut::cinder_backend_iscsi: false
+mazut::cinder_backend_netapp: false
+mazut::cinder_backend_nfs: false
+mazut::cinder_backend_rbd: false
+mazut::cinder_multiple_backends: false
+mazut::amqp_port: 5672
+mazut::glance_backend: file
+mazut::glance_rbd_store_user: images
+mazut::glance_rbd_store_pool: images
+mazut::glance_nfs_url: ~
+mazut::provision_glance: false
+mazut::cirros_version: 0.3.4
+mazut::nova_default_floating_pool: nova
+mazut::enable_tunneling: true
+mazut::enable_agent: true
+mazut::agent_type: ovs
+mazut::neutron_core_plugin: neutron.plugins.ml2.plugin.Ml2Plugin
+mazut::provision_neutron: false
+mazut::neutron_public_net: ~
+mazut::neutron_public_gateway: ~
+mazut::neutron_public_start: ~
+mazut::neutron_public_end: ~
+mazut::neutron_ml2_mechanism_drivers: 
+- openvswitch
+- l2population
+mazut::ovs_l2_population: true
+mazut::tenant_network_type: vxlan
+mazut::ovs_bridge_mappings: []
+mazut::ovs_bridge_uplinks: []
+mazut::ovs_vlan_ranges: ~
+mazut::ovs_tunnel_iface: ''
+mazut::ovs_tunnel_network: ''
+mazut::tunnel_id_ranges: 1:1000
+mazut::ovs_vxlan_udp_port: 4789
+mazut::ovs_tunnel_types:
+ - vxlan
+mazut::private_iface: ''
+mazut::private_ip: ''
+mazut::private_network: ''
+mazut::net_partition: Openstack_Default
+mazut::vsdport: 8443
+mazut::opendaylight_port: 8080
+mazut::opendaylight_username: admin
+mazut::opendaylight_password: admin
+mazut::heat_cfn: false
+mazut::heat_cloudwatch: false
+mazut::horizon_allowed_hosts: '*'
+mazut::horizon_custom: false
+mazut::keystone_api_version: v2.0
+mazut::extra_services:
+ - ceilometer
+mazut::extra_network_services:
+ - dhcp
+ - l3
+ - metadata
+mazut::enable_galera: false
+mazut::mongodb_replica: true
+mazut::mongodb_replicaset: replica
+mazut::cluster_transport: udpu
+mazut::cluster_enablevip: true
+mazut::provision_keystone: false
+mazut::provision_tenant: demo
+mazut::provision_user: demo
+mazut::provision_password: demo
+mazut::provision_password: demo
+mazut::stonith: false
+mazut::cluster_haproxy: false
+mazut::cluster_rabbitmq: false
+mazut::cluster_mongodb: false
+mazut::cluster_redis: false
+mazut::multiple_endpoints: false
+mazut::enable_ldap: false
+mazut::enable_nfv: false
+mazut::enable_resize: false
+mazut::designate_backend: bind9

@@ -1,0 +1,11 @@
+---
+bvaosp::verbose: true
+mazut::debug: true
+mazut::swift_ringserver_ip: 192.168.3.100
+mazut::swift_storage_ips:
+ - 192.168.3.5
+mazut::swift_storage_device: vdb1
+mazut::swift_shared_secret: unix1234
+mazut::swift_local_interface: eth0
+mazut::swift_storage_fstype: xfs
+mazut::swift_storage_loopback: true

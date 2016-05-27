@@ -1,0 +1,3 @@
+---
+nova::vncproxy::common::vncproxy_host: false
+mazut::public_url_novnc: https://novavnc.com
